@@ -20,4 +20,20 @@ class AuthorController extends Controller
         }
         return response()->json($author);
     }
+
+    public function store(Request $request)
+    {
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'bio' => 'nullable|string'
+    ]);
+
+    $author = \App\Models\Author::create($validated);
+
+    return response()->json([
+        'message' => 'Author berhasil dibuat',
+        'data' => $author
+    ], 201);
+    }
+
 }
