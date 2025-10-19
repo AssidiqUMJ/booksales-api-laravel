@@ -17,8 +17,11 @@ class GenreController extends Controller
     // Create all
     public function store(Request $request)
     {
+        // DIPERBAIKI: Mengubah 'name' menjadi 'nama' dan menambahkan 'deskripsi' 
+        // agar sesuai dengan Model fillable dan skema DB.
         $validated = $request->validate([
-            'name' => 'required|string|max:255'
+            'nama' => 'required|string|max:255',
+            'deskripsi' => 'required|string'
         ]);
 
         $genre = Genre::create($validated);

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Genre; // DIPERBAIKI: Menambahkan import model Genre
 
 class GenreSeeder extends Seeder
 {
@@ -12,29 +13,30 @@ class GenreSeeder extends Seeder
      */
     public function run(): void
     {
-        Genre::created([
-          'Nama' => 'Fiksi',
-          'Deskripsi' => 'Buku ini berisi cerita fiktif'
+        // DIPERBAIKI: Mengganti ::created() dengan ::create() dan memperbaiki casing key menjadi snake_case.
+        Genre::create([
+          'nama' => 'Fiksi',
+          'deskripsi' => 'Buku ini berisi cerita fiktif'
         ]);
 
-        Genre::created([
-        'Nama' => 'Non-Fiksi',
-        'Deskripsi' => 'Buku ini berisi cerita berdasarkan kisah nyata'
+        Genre::create([
+        'nama' => 'Non-Fiksi',
+        'deskripsi' => 'Buku ini berisi cerita berdasarkan kisah nyata'
         ]);
 
-        Genre::created([
-        'Nama' => 'Fantasi',
-        'Deskripsi' => 'Buku ini berisi kisah khayalan'
+        Genre::create([
+        'nama' => 'Fantasi',
+        'deskripsi' => 'Buku ini berisi kisah khayalan'
         ]);
 
-        Genre::created([
-        'Nama' => 'Sejarah',
-        'Deskripsi' => 'Buku ini berisi kisah history yang terjadi di masa lalu'
+        Genre::create([
+        'nama' => 'Sejarah',
+        'deskripsi' => 'Buku ini berisi kisah history yang terjadi di masa lalu'
         ]);
 
-        Genre::created([
-        'Nama' => 'Romance',
-        'Deskripsi' => 'Buku ini berisi kisah romantis'
+        Genre::create([
+        'nama' => 'Romance',
+        'deskripsi' => 'Buku ini berisi kisah romantis'
         ]);
     }
 }

@@ -9,13 +9,15 @@ class LibraryController extends Controller
 {
     public function showGenres()
     {
-        $genres = Genre::getAll();
+        // DIPERBAIKI: Menggunakan metode Eloquent yang benar
+        $genres = Genre::all(); 
         return view('genres', compact('genres'));
     }
 
     public function showAuthors()
     {
-        $authors = Author::getAll();
+        // DIPERBAIKI: Menggunakan metode Eloquent yang benar
+        $authors = Author::all(); 
         return view('authors', compact('authors'));
     }
 }

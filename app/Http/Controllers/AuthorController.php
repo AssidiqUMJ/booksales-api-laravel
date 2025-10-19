@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
+use Illuminate\Http\Request; // DIPERBAIKI: Menambahkan import Request
 
 class AuthorController extends Controller
 {
@@ -28,12 +29,11 @@ class AuthorController extends Controller
         'bio' => 'nullable|string'
     ]);
 
-    $author = \App\Models\Author::create($validated);
+    $author = Author::create($validated); // Menggunakan Author::create() karena sudah di-import
 
     return response()->json([
         'message' => 'Author berhasil dibuat',
         'data' => $author
     ], 201);
     }
-
 }
