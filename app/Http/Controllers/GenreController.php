@@ -14,11 +14,9 @@ class GenreController extends Controller
         return response()->json($genres);
     }
 
-    // Create all
+    // Create
     public function store(Request $request)
     {
-        // DIPERBAIKI: Mengubah 'name' menjadi 'nama' dan menambahkan 'deskripsi' 
-        // agar sesuai dengan Model fillable dan skema DB.
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'deskripsi' => 'required|string'
@@ -29,5 +27,49 @@ class GenreController extends Controller
             'message' => 'Genre berhasil dibuat',
             'data' => $genre
         ], 201);
+    }
+
+    // PERBAIKAN: Menambahkan method show
+    public function show($id)
+    {
+        $genre = Genre::find($id);
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
+        return response()->json($genre);
+    }
+
+    // PERBAIKAN: Menambahkan method update
+    public function update(Request $request, $id)
+    {
+        $genre = Genre::find($id);
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
+
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'deskripsi' => 'required|string'
+        ]);
+
+        $genre->update($validated);
+        
+        return response()->json([
+            'message' => 'Genre berhasil diperbarui',
+            'data' => $genre
+        ]);
+    }
+    
+    // PERBAIKAN: Menambahkan method destroy
+    public function destroy($id)
+    {
+        $genre = Genre::find($id);
+        if (!$genre) {
+            return response()->json(['message' => 'Genre not found'], 404);
+        }
+
+        $genre->delete();
+
+        return response()->json(['message' => 'Genre berhasil dihapus']);
     }
 }
