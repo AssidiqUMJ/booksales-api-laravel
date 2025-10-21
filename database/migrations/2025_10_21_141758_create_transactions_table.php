@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genres', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->text('description');
+            $table->string('order_number');
+            $table->foreignid('customer_id')->constrained('users')->onDelete('cascade');
+            $table->foreignid('book_id')->constrained('books')->onDelete('cascade');
+            $table->decimal('total_amount', 10, 2);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('genres');
+        Schema::dropIfExists('transactions');
     }
 };
