@@ -16,27 +16,27 @@ class GenreSeeder extends Seeder
         // DIPERBAIKI: Mengganti ::created() dengan ::create() dan memperbaiki casing key menjadi snake_case.
         Genre::create([
           'nama' => 'Fiksi',
-          'deskripsi' => 'Buku ini berisi cerita fiktif'
+          'description' => 'Buku ini berisi cerita fiktif'
         ]);
 
         Genre::create([
         'nama' => 'Non-Fiksi',
-        'deskripsi' => 'Buku ini berisi cerita berdasarkan kisah nyata'
+        'description' => 'Buku ini berisi cerita berdasarkan kisah nyata'
         ]);
 
         Genre::create([
         'nama' => 'Fantasi',
-        'deskripsi' => 'Buku ini berisi kisah khayalan'
+        'description' => 'Buku ini berisi kisah khayalan'
         ]);
 
         Genre::create([
         'nama' => 'Sejarah',
-        'deskripsi' => 'Buku ini berisi kisah history yang terjadi di masa lalu'
+        'description' => 'Buku ini berisi kisah history yang terjadi di masa lalu'
         ]);
 
         Genre::create([
         'nama' => 'Romance',
-        'deskripsi' => 'Buku ini berisi kisah romantis'
+        'description' => 'Buku ini berisi kisah romantis'
         ]);
     }
 }

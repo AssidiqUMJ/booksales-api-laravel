@@ -10,6 +10,6 @@ class Genre extends Model
     use HasFactory;
 
     // DIPERBAIKI: Mengubah fillable agar sesuai dengan kolom 'nama' dan 'deskripsi' di migrasi.
-    protected $fillable = ['nama', 'deskripsi'];
+    protected $fillable = ['nama', 'description'];
     
 }
