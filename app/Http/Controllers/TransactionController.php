@@ -110,3 +110,5 @@ class TransactionController extends Controller
     
     // Metode update dan destroy tidak disediakan karena transaksi jarang diperbarui/dihapus dalam sistem riil.
 }
+
+// 
